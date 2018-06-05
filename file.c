@@ -234,7 +234,7 @@ int file_remove(const char *name)
 	wchar_t wname[sizeof(wchar_t)* PATH_BUF_LEN];
 	if (UTF8ToUnicode(name, wname) == -1)
 	{
-		return NULL;
+		return -1;
 	}
 	return _wremove(wname);
 	#else
