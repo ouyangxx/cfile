@@ -216,11 +216,11 @@ int file_rename(const char *oldname, const char *newname)
 	wchar_t wnewname[sizeof(wchar_t)* PATH_BUF_LEN];
 	if (UTF8ToUnicode(oldname, woldname) == -1)
 	{
-		return NULL;
+		return -1;
 	}
 	if (UTF8ToUnicode(newname, wnewname) == -1)
 	{
-		return NULL;
+		return -1;
 	}
 	return _wrename(woldname, wnewname);
 	#else
